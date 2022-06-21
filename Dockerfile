@@ -29,7 +29,7 @@ EXPOSE 631
 VOLUME /config
 VOLUME /services
 
-# Add scripts
+# Add scripts and install hp136w driver -- uld
 ADD root /
 RUN chmod +x /root/*
 CMD ["/root/run_cups.sh"]
