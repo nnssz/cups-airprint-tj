@@ -3,19 +3,14 @@
 #set -e
 #set -x
 
-if [ $(grep -ci $CUPSADMIN /etc/shadow) -eq 0 ]; then
-    useradd -r -G lpadmin -M $CUPSADMIN 
-fi
-echo $CUPSADMIN:$CUPSPASSWORD | chpasswd
+cd /root/
+tar  -xzvf "./uld-hp_V1.00.39.12_00.15.tar.gz"
 
-mkdir -p /config/ppd
-mkdir -p /services
-rm -rf /etc/cups/ppd
-ln -s /config/ppd /etc/cups
-if [ ! -f /config/printers.conf ]; then
-    touch /config/printers.conf
-fi
-cp /config/printers.conf /etc/cups/printers.conf
+#line 12 is space + enter ;line 13 is enter
+echo "
+ y
+ 
 
-/root/printer-update.sh &
-exec /usr/sbin/cupsd -f
+" | /root/uld/install.sh
+
+exit 0
