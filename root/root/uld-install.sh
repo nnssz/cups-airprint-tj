@@ -1,16 +1,27 @@
 #!/bin/bash
-#!/bin/sh
-#set -e
-#set -x
 
 cd /root/
 tar  -xzvf "./uld-hp_V1.00.39.12_00.15.tar.gz"
 
-#line 11 is space + space + enter ;line 13 is enter .
-echo "
-  y
- 
+cd ./uld
 
-" | /root/uld/install.sh
+cat << 'EOF' > auto-install.sh
+#!/bin/sh
+SCRIPTS_DIR=$(dirname "$0")/noarch
+# load 'scripting' run-time support utility functions
+. "${SCRIPTS_DIR}/scripting_utils"
+script_log_init $(basename "$0" ".sh")
+# load 'package' run-time support utility functions
+. "${SCRIPTS_DIR}/package_utils"
+environment_init $(basename "$0" ".sh")
+sh "$SCRIPTS_DIR/package_install.sh" "printer-meta"
+sh "$SCRIPTS_DIR/package_install.sh" "scanner-meta"
+EOF
+
+chmod +x ./auto-install.sh
+
+# 配置防火墙，以便设置网络设备，回车同意
+echo "
+" | ./auto-install.sh
 
 exit 0
