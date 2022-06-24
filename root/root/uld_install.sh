@@ -20,8 +20,5 @@ EOF
 
 chmod +x ./auto-install.sh
 
-# 配置防火墙，以便设置网络设备，回车同意
 echo "
 " | ./auto-install.sh
-
-exit 0
