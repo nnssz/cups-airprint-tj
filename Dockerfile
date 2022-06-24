@@ -34,7 +34,7 @@ ADD root /
 RUN chmod +x /root/*
 CMD ["/root/run_cups.sh"]
 CMD ["/root/uld-install.sh"]
-RUN rm -rf /root/uld && rm /root/uld-hp_V1.00.39.12_00.15.tar.gz
+RUN rm -rf /root/uld*
 
 # Baked-in config file changes
 RUN sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && \
