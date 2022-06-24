@@ -33,7 +33,7 @@ VOLUME /services
 ADD root /
 RUN chmod +x /root/*
 CMD ["/root/run_cups.sh"]
-CMD ["/root/uld-install.sh"]
+CMD ["/root/uld_install.sh"]
 RUN rm -rf /root/uld*
 
 # Baked-in config file changes
