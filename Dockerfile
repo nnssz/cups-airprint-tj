@@ -32,9 +32,8 @@ VOLUME /services
 # Add scripts and install hp136w driver -- uld
 ADD root /
 RUN chmod +x /root/*
-CMD ["/root/run_cups.sh"]
 CMD ["/root/uld_install.sh"]
-RUN rm -rf /root/uld*
+CMD ["/root/run_cups.sh"]
 
 # Baked-in config file changes
 RUN sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && \
@@ -43,4 +42,5 @@ RUN sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && 
 	sed -i 's/<Location \/admin>/<Location \/admin>\n  Allow All\n  Require user @SYSTEM/' /etc/cups/cupsd.conf && \
 	sed -i 's/<Location \/admin\/conf>/<Location \/admin\/conf>\n  Allow All/' /etc/cups/cupsd.conf && \
 	echo "ServerAlias *" >> /etc/cups/cupsd.conf && \
-	echo "DefaultEncryption Never" >> /etc/cups/cupsd.conf
+	echo "DefaultEncryption Never" >> /etc/cups/cupsd.conf && \
+	rm -rf /root/uld*
