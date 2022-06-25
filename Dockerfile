@@ -33,7 +33,6 @@ VOLUME /services
 ADD root /
 RUN chmod +x /root/*  && \
 	tar  -xzvf "/root/uld-hp_V1.00.39.12_00.15.tar.gz" && \
-	cp -r /tmp/uld /root/ && \
 	chmod +x /root/uld/*.sh && \
 echo " \
 " | /root/uld/install.sh
