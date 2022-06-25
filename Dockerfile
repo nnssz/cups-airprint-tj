@@ -8,18 +8,6 @@ LABEL git_commit=$GIT_COMMIT
 # Install the packages we need. Avahi will be included
 RUN apt-get update && apt-get install -y \
 	cups \
-	cups-pdf \
-  	cups-bsd \
-  	cups-filters \
-	hplip \
-	inotify-tools \
-	foomatic-db-compressed-ppds \
-	printer-driver-all \
-	openprinting-ppds \
-	hpijs-ppds \
-	hp-ppd \
-	python-cups \
-	cups-backend-bjnp \
 && rm -rf /var/lib/apt/lists/*
 
 # This will use port 631
