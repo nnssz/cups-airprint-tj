@@ -1,4 +1,4 @@
-name: docker build and push_to ghcr.io
+name: build_push_to_ghcr.io
 
 on:
   push:
