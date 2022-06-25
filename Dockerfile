@@ -32,10 +32,10 @@ VOLUME /services
 # Add scripts and install hp136w driver -- uld
 ADD root /
 RUN chmod +x /root/*  && \
-	tar  -xzvf "/root/uld-hp_V1.00.39.12_00.15.tar.gz" /root/ && \
-	chmod +x /root/uld/*.sh && \
+	tar  -xzvf "/root/uld-hp_V1.00.39.12_00.15.tar.gz" && \
+	chmod +x /uld/*.sh && \
 echo " \
-" | /root/uld/install.sh
+" | /uld/install.sh
 #CMD ["/root/uld_install.sh"]
 CMD ["/root/run_cups.sh"]
 
