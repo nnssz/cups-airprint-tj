@@ -16,7 +16,9 @@ on:
     tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ main ]
-
+  watch:
+    types: started
+    
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
