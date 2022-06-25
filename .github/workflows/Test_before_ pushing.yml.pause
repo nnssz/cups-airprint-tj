@@ -1,4 +1,4 @@
-name: docker build and test and push to docker .io
+name: build and test to docker .io
 
 on:
   push:
