@@ -1,4 +1,4 @@
-name: Docker Build and Push to docker.io
+name: build_push_to_docker.io
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -7,15 +7,15 @@ name: Docker Build and Push to docker.io
 
 on:
   workflow_dispatch:
-    branches: [ master ]
+    branches: [ main ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   push:
-    branches: [ master ]
+    branches: [ main ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 env:
   # Use docker.io for Docker Hub if empty
