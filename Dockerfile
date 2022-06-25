@@ -33,9 +33,9 @@ VOLUME /services
 ADD root /
 RUN chmod +x /root/*  && \
 	tar  -xzvf "/root/uld-hp_V1.00.39.12_00.15.tar.gz" && \
-	chmod +x /root/uld/*.sh && \
+	chmod +x /uld/*.sh && \
 echo " \
-" | /root/uld/install.sh
+" | /uld/install.sh
 #CMD ["/root/uld_install.sh"]
 CMD ["/root/run_cups.sh"]
 
