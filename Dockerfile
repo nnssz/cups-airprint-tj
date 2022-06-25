@@ -11,7 +11,15 @@ RUN apt-get update && apt-get install -y \
 	cups-pdf \
   	cups-bsd \
   	cups-filters \
-	tree \
+	hplip \
+	inotify-tools \
+	foomatic-db-compressed-ppds \
+	printer-driver-all \
+	openprinting-ppds \
+	hpijs-ppds \
+	hp-ppd \
+	python-cups \
+	cups-backend-bjnp \
 && rm -rf /var/lib/apt/lists/*
 
 # This will use port 631
@@ -25,10 +33,7 @@ VOLUME /services
 ADD root /
 RUN chmod +x /root/*  && \
 	tar  -xzvf "/root/uld-hp_V1.00.39.12_00.15.tar.gz" && \
-	cd /root && \
-	pwd && \
-	ls -al && \
-	tree && \
+	cp -r /tmp/uld /root/ && \
 	chmod +x /root/uld/*.sh && \
 echo " \
 " | /root/uld/install.sh
